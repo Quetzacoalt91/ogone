@@ -145,7 +145,9 @@ class Ogone extends PaymentModule
 
 		$this->description = $this->l($desc);
 		/* Backward compatibility */
-		require_once _PS_MODULE_DIR_.'ogone/backward_compatibility/backward.php';
+		if (version_compare(_PS_VERSION_, '1.5', '<')) {
+			require_once _PS_MODULE_DIR_.'ogone/backward_compatibility/backward.php';
+		}
 	}
 
 	public function install()
